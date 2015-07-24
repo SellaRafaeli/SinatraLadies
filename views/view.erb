@@ -1,0 +1,35 @@
+<html>
+
+<style>
+  body {
+    background-color: lightblue;
+    color: purple;
+  } 
+  input, textarea {
+    display: block;
+  }
+</style>
+
+ <body>
+<h1>Hello, this is Sinatra Ladies Task Manager.</h1>
+
+<h3>Add new task</h3>
+
+<form method='post' action='/add'>
+  <label>Name</label><input type='text' name='name'>
+  <label>Description</label><textarea name='description'></textarea>
+  <button>Submit</button>
+</form>
+
+<small style='color: black'><a href="/clear_all">Delete all</a></small>
+
+<h1>Tasks</h1>
+<% tasks.to_a.each do |task| %>
+  <article>
+    <b><%= task['name'] %></b>
+    <span><%= task['description'] %></span>
+  <article>
+<% end %>
+
+</body>
+</html>
